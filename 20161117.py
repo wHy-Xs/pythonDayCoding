@@ -4,15 +4,14 @@ class Solution:
     # @param n a integer
     # @return ans a integer
     def trailingZeros(self, n):
-      if n < 0:
-          return -1
-      count = 0
-      for i in range(5,n+1):
-          j=i
-          while (j%5 == 0) : 
-            count=count+1  
-            j /= 5   
-      return count
+        if n<0:
+            return -1       
+        count=0
+        i = 5
+        while n/i>=1:
+            count +=n/i
+            i = i * 5
+        return count
 """
 因为尾零得来是由于2*5等于10，那么就会为结果增加一个零，所以只要计算这两个数出现了多少对就可以了。但是由于2出现的次数会远远大于5，
 所以，只要计算5的倍数出现多少次。
