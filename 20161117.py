@@ -47,7 +47,7 @@ class Solution:
 python中可以直接排序sorted().还有一个输出列表下标的函数list.index()
 """
 4.###########给定一个排序的整数数组（升序）和一个要查找的整数target，
-用O(logn)的时间查找到target第一次出现的下标（从0开始），如果target不存在于数组中，返回-1。##########
+###用O(logn)的时间查找到target第一次出现的下标（从0开始），如果target不存在于数组中，返回-1。与第6题类似##########
 class Solution:
     # @param nums: The integer array
     # @param target: Target number to find
@@ -88,7 +88,7 @@ class Solution:
 题目不难，重要的是利用python的特性的这种想法很关键
 """
 6.##############给定一个排序数组和一个目标值，如果在数组中找到目标值则返回索引。如果没有，返回到它将会被按顺序插入的位置。
-你可以假设在数组中无重复元素。#############################
+###你可以假设在数组中无重复元素。与第四题类似#############################
 class Solution:
     """
     @param A : a list of integers
