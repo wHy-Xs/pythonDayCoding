@@ -44,3 +44,21 @@
 求一个无序序列中第K大/小个数，如果没有重复元素，则直接排序，找到第K大个数就行，但是如果有重复的元素，就比较麻烦。没有搁进去的值，java会自动赋值0.
 所以只能排序。
 */
+
+4.回文字符串
+方法1：
+  public static void main(String[]args){
+    String a="dfdfdf";
+    int count=0;
+    for(int i=0;i<a.length()/2;i++){
+      if(a.substring(i,i+1).equals(s.substring(a.length()-1-i,a.length()-i)))
+        count++;  
+    }
+    if(count==a.length()-1/2){
+      System.out.println("是回文")；
+    }else{
+      System.out.println("不是回文")；
+    }
+  }
+  方法2：
+    stringBuilder中的reverse方法
