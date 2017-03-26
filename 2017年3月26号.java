@@ -62,3 +62,12 @@
   }
   方法2：
     stringBuilder中的reverse方法
+5.进制转换
+private static void test(){
+    System.out.println("十转二："+Integer.toBinaryString(120));
+    System.out.println("十转八："+Integer.toOctalString(120));
+    System.out.println("十转十六："+Integer.toHexString(120));
+    System.out.println("二转十："+Integer.valueOf("1010",2));
+    System.out.println("八转十："+Integer.valueOf("125",8));
+    System.out.println("十六转十："+Integer.valueOf("ABCDEF",16));
+}
