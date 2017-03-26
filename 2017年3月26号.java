@@ -71,3 +71,44 @@ private static void test(){
     System.out.println("八转十："+Integer.valueOf("125",8));
     System.out.println("十六转十："+Integer.valueOf("ABCDEF",16));
 }
+
+
+6.将四则运算规则变换为从左到右进行计算，就有+，-，*.
+	Scanner cin=new Scanner(System.in);
+		String a=cin.next();
+		int sum = 0;
+    //正则
+    //正则表达式中想匹配*用想斜杠，或的话用|
+    String[]arr1=a.replaceAll("[0-9]",",").split(",");
+		String[]arr2=a.replaceAll("[+-]|\\*", ",").split(",");
+		//想将一个string转换成int，Integer.valueOf(arr).intValue()
+if(arr1[1].equals("+")){		
+			sum=Integer.valueOf(arr2[0]).intValue()+Integer.valueOf(arr2[1]).intValue();
+		
+		}else if(arr1[1].equals("-")){
+		
+			sum=Integer.valueOf(arr2[0]).intValue()-Integer.valueOf(arr2[1]).intValue();
+		
+		}else if(arr1[1].equals("*")){
+		
+			sum=Integer.valueOf(arr2[0]).intValue()*Integer.valueOf(arr2[1]).intValue();
+		
+	}
+    //用count控制运算。                                  
+		int count=1;
+                                      
+		for(int i=2;i<arr2.length;i++){
+			count++;
+			if(count==arr1.length)
+				break;
+			if(arr1[count].equals("+")){	
+					sum=sum+Integer.valueOf(arr2[i]).intValue();				
+				}else if(arr1[count].equals("-")){				
+					sum=sum-Integer.valueOf(arr2[i]).intValue();				
+				}else if(arr1[count].equals("*")){				
+					sum=sum*Integer.valueOf(arr2[i]).intValue();			
+			}
+		}
+		System.out.println(sum);
+		
+		
