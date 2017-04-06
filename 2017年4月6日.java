@@ -89,3 +89,26 @@
 		}
 		System.out.println(n);
 '''
+5.整数转罗马数字
+//给定一个整数，将其转换成罗马数字。返回的结果要求在1-3999的范围内
+public class Main {  
+    public static void main(String[] args) {  
+  
+        String digit[] = { "", "I", "II", "III", "IV", "V", "VI", "VII",  
+                "VIII", "IX" };  
+        String ten[] = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX",  
+                "XC" };  
+        String hundred[] = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC",  
+                "DCCC", "CM" };  
+        String thousand[] = { "", "M", "MM", "MMM" };  
+  
+        Scanner input = new Scanner(System.in);  
+        int num = Integer.valueOf(input.nextLine());  
+  
+        System.out.print(thousand[num / 1000]);  
+        System.out.print(hundred[num % 1000 / 100]);  
+        System.out.print(ten[num % 100 / 10]);  
+        System.out.print(digit[num % 10]);  
+  
+    }  
+}  
