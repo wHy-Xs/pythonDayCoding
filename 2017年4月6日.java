@@ -35,3 +35,36 @@
             }
             return sum;
          }
+3.求质数以及判断一个数是否是素数
+  eg1.判断1到100之间的素数有哪些
+       public static void main(String[] args) {
+        int sum=0;
+        int j;
+        for (int i = 2; i <= 100; i++) // 1不是素数，所以直接从2开始循环
+        {
+            j = 2;
+            while (i % j != 0) {
+                j++; // 测试2至i的数字是否能被i整除，如不能就自加
+            }
+            if (j == i) // 当有被整除的数字时，判断它是不是自身
+            {
+                System.out.println(i); // 如果是就打印出数字
+            }
+        }
+    }
+}
+  eg2.判断一个数是否是素数（质数就是只能被1和它本身整除的数）
+    int a=cin.nextInt();
+		System.out.println(a);
+		for(int i=2;i<=a;i++){
+				if(a%i==0){
+					if(a!=i){
+						System.out.println("this is not sushu");
+					}else{
+						System.out.println("this is sushu ");
+					}
+					break;
+				
+			}
+		}
+  
