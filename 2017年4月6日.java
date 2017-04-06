@@ -17,3 +17,21 @@
           sum=0;
         }
       }
+2.x的n次幂
+  思路：考虑到一种特殊的情况就是当num==0时，它的不管多少次幂都是1.另一个坑点就是要考虑幂次负数的情况。
+  public double myPow(double x, int n) {
+        // Write your code here
+        double sum=1;
+        if(n>0){
+            for(int i=0;i<n;i++){
+              sum=sum*x;
+               }
+            }else if(n<0){
+              for(int j=n;j<0;j++){
+                sum=sum*(1/x);
+              }
+            }else if(n==0){
+                 sum=1;
+            }
+            return sum;
+         }
