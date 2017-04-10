@@ -119,3 +119,30 @@ public class Main {
 10.合并两个排序的整数数组A和B变成一个新的数组。
 	eg:给出A=[1,2,3,4]，B=[2,4,5,6]，返回 [1,2,2,3,4,4,5,6] 
 	思路：定义一个新的数组
+11.分解质因数 
+      Scanner sc=new Scanner(System.in);
+      System.out.println("请输入您要分解的正整数：");
+      //定义要需要分解质因数的正整数
+      int n=sc.nextInt();
+      //定义最小质数k
+      int k=2;
+      System.out.print(n+"分解质因数后结果为："+n+"=");
+      //用k与n的值作为循环条件
+      while(n>k)
+      {
+         //如果n能被k整除（即n%k时候等于0），如果能整除这打印出k的值
+         if(n%k==0)
+         {
+            //打印出k的值
+            System.out.print(k+"*");      
+            //用n除以k的商作为新的正整数
+            n=n/k;
+         }
+         //如果n不能被k整除，则用k+1作为k的值
+         if(n%k!=0)
+         {
+            k++;//k值加一
+         }
+      }
+      //打印最终的k的值
+      System.out.println(k);
