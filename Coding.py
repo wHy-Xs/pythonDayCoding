@@ -24,4 +24,18 @@ def main():
 		print "bushi huiwen"
 if __name__ == '__main__':
 	main()
+
+2.如果从一端什么都有的字符串中取出字母
+#两种方法可以实现1.判断字符串中的字母是否属于24个字母 2.用正则表达式
+def main():
+	s="nihao,woshi ni da y!"
+	zimu="abcdefghijklmnopqrstuvwxyz"
+	k=""
+	for i in s:
+		if i in zimu:
+			k=k+"".join(i)
+	print k
+if __name__ == '__main__':
+	main()
+
   
