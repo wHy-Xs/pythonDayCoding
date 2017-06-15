@@ -37,5 +37,25 @@ def main():
 	print k
 if __name__ == '__main__':
 	main()
+	
+3.翻转整数，有个坑点就是负数的情况
+#知识点：切片[1:5]则输出就是从标号1到标号5 而range(0,5)只是输出0--4
+def main():
+	k=""
+	s=-123
+	if s>0:
+		l=list(str(s))
+		l.reverse()
+		for i in l:
+			k=k+"".join(i)
+		print k
+	else:
+		l=list(str(s))
+		l.reverse()
+		for i in l:
+			k=k+"".join(i)
+		print "-"+k[:len(l)-1]
 
-  
+
+if __name__ == '__main__':
+	main()
