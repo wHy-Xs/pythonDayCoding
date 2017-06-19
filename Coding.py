@@ -210,3 +210,43 @@ def bucket_sort(aList):
         # 递归运算  
         quick_sort_helper(aList, count + 1, last)  
         return aList  
+
+11.合并排序数组
+def mergeSortedArray(self, A, B):  
+        nA = len(A)  
+        nB = len(B)  
+        result = []  
+        index_A = index_B = 0  
+        # 两个指针都不能越界  
+        while index_A != nA and index_B != nB:  
+            if A[index_A] < B[index_B]:  
+                result.append(A[index_A])  
+                index_A += 1  
+            else:  
+                result.append(B[index_B])  
+                index_B += 1  
+        # 与未被扫描的部分合并，因为都是排好序的数组，所以直接相加  
+        result += A[index_A:]  
+        result += B[index_B:]  
+        return result  
+        # write your code here  
+	
+第二种情况：
+	def mergeSortedArray(self, A, m, B, n):  
+        # 实际上用m，n，total代表三个指针  
+        total = m + n  
+        while m > 0 and n > 0:  
+            if A[m - 1] > B[n - 1]:  
+                A[total - 1] = A[m - 1]  
+                m -= 1  
+            else:  
+                A[total - 1] = B[n - 1]  
+                n -= 1  
+            total -= 1  
+        # 如果是B没扫描完，依次对未赋值的A元素赋值  
+        while n > 0:  
+            A[total - 1] = B[n - 1]  
+            n -= 1  
+            total -= 1  
+        return A  
+        # write your code here  
