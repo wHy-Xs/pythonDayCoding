@@ -176,3 +176,37 @@ def bucket_sort(aList):
 	for i in range(n):  
 	    result[aList[i] - 1] = aList[i]  
 	return result  
+
+10.快速排序：快速排序的基本逻辑是这样的：每次随机挑选一个数组的元素，作为“枢轴”，然后扫描数组中其他的所有元素，将小于枢轴的，排列在枢轴的左侧，
+大于枢轴的，排列在枢轴的右侧。然后再分别对枢轴左右两侧的部分数组进行快速排序（这是一个递归的逻辑），这样，当递归运算“触底”后
+（每次需要快排的部分数组中只有一个元素），逐层返回，就最终得到排好序的数组了。
+    def quick_sort(aList):  
+        first = 0  
+        # 设定需要扫描的数组首尾位置  
+        last = len(aList) - 1  
+        # 改变参数的快速排序函数  
+        aList = quick_sort_helper(aList, first, last)  
+        return aList  
+      
+      
+    def quick_sort_helper(aList, first, last):  
+        # 这种情况说明扫描的数组部分只有一个元素了，直接返回  
+        # 需要注意的是，原地排序没有真正意义上分割数组  
+        # 只是对数组的不同部分做交换位置操作  
+        # 所以“触底”后返回的是整个数组  
+        if first >= last:  
+            return aList  
+        # 建立“枢轴”，不失一般性，令枢轴为扫描部分的第一个元素     
+        pivot = aList[first]  
+        # 计数，求出比枢轴小的元素的个数（也就是需要调整到的位置索引）  
+        count = first  
+        for index in range(first + 1, last + 1):#扫描  
+            if aList[index] < pivot:  
+                count += 1  
+                # 交换位置  
+                aList[index], aList[count] = aList[count], aList[index]  
+        aList[count], aList[first] = aList[first], aList[count]  
+        quick_sort_helper(aList, first, count - 1)  
+        # 递归运算  
+        quick_sort_helper(aList, count + 1, last)  
+        return aList  
