@@ -153,4 +153,26 @@ def fib(n):
 if __name__ == "__main__":  
     f = fib(10)  
     print f  
-	
+
+9.桶排序：工作的原理是将数组分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序）
+方法一：时间复杂度o(n)
+def bucket(alist):
+	n = len(alist)
+	result=[0]*10
+	print result
+	for i in range(n):
+		if alist[i] not in result:
+			result[alist[i]-1]+=1
+	return result
+
+resu= bucket([6,2,7,3,2,8])
+for i in range(len(resu)):
+	for j in range(resu[i]):
+		print i,
+方法二：只适用于连续的无重复的序列
+def bucket_sort(aList):  
+	n = len(aList)  
+	result = [0 for i in range(n)]  
+	for i in range(n):  
+	    result[aList[i] - 1] = aList[i]  
+	return result  
