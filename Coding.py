@@ -129,3 +129,28 @@ def refunc(n):
 	  n=n*refunc(n-1)
         print "% d!="%i,n
         return n
+8.斐波那契数列实现
+方法一：
+def fib(n):  
+    a,b = 0,1  
+    for i in range(n):  
+        a,b =b,a+b  
+    print a  
+f = fib(10)  
+print f 
+方法二：
+def fib(n):  
+    """ 
+    This is Fibonacci by Recursion. 
+    """  
+    if n==0:  
+        return 0  
+    elif n==1:  
+        return 1  
+    else:  
+        return fib(n-1) + fib(n-2)  
+  
+if __name__ == "__main__":  
+    f = fib(10)  
+    print f  
+	
