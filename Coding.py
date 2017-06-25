@@ -313,3 +313,10 @@ def stringPermutation(s):
 
 	m=m+"".join(k[len(k)-1])
 	print m
+15.删除元素，将列表中元素删除，这里有个知识点就是list中的remove方法不能再迭代的过程中使用，因为会造成长度不确定
+def stringPermutation(a,elem):
+	count=0
+	for i in a:
+		count+=1
+	for j in range(count):
+		a.remove(elem)
