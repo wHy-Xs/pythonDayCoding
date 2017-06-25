@@ -289,3 +289,18 @@ def mergeSortedArray(self, A, B):
                 # 负责扫描target的指针归零  
                 index = 0  
             return -1  
+13.字符串置换：利用字符串排序，有个重要知识点就是字符串转成列表然后转换成字符串
+	def stringPermutation(A, B):
+        if len(A)!=len(B):
+            return False
+        
+        a=list(A)
+        b=list(B)
+        a.sort()
+        b.sort()
+        A="".join(a)
+        B="".join(b)
+        if A==B:
+            return True
+        else:
+            return False
