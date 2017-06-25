@@ -250,3 +250,42 @@ def mergeSortedArray(self, A, B):
             total -= 1  
         return A  
         # write your code here  
+12.查找字符串
+题目描述：对于一个给定的 source 字符串和一个 target 字符串，你应该在 source 字符串中找出 target 字符串出现的第一个位置(从0开始)。如果不存在，则返回 -1。
+
+样例：如果 source = "source" 和 target = "target"，返回 -1。如果 source = "abcdabcdefg" 和 target = "bcd"，返回 1。
+
+    class Solution:  
+        def strStr(self, source, target):  
+            if source is None or target is None:  
+                return -1  
+            cur, index = 0, 0  
+            s_len = len(source)  
+            t_len = len(target)  
+      
+            # cur为当前target与source尝试匹配时，source的起始位置  
+            while cur <= s_len - t_len:  
+      
+                # 记录一个临时值  
+                temp = cur  
+      
+                # 扫描target  
+                while index != t_len:  
+                    # 匹配失败  
+                    if target[index] != source[cur]:  
+                        break  
+                    # 当前字符匹配成功  
+                    else:  
+                        index += 1  
+                        cur += 1  
+      
+                # index == t_len证明整个模式匹配成功  
+                if index == t_len:  
+                    return cur - t_len  
+      
+                # 若target没有匹配成功，向右移动一位，接着来  
+                cur = temp + 1  
+      
+                # 负责扫描target的指针归零  
+                index = 0  
+            return -1  
