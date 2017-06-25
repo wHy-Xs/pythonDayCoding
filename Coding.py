@@ -320,3 +320,23 @@ def stringPermutation(a,elem):
 		count+=1
 	for j in range(count):
 		a.remove(elem)
+16.比较两个字符串A和B，确定A中是否包含B中所有的字符。字符串A和B中的字符都是 大写字母
+def compareStrings(A, B):
+        # write your code here
+        if len(A)==1 and len(B)==0:
+            return True
+        count=0
+
+        f=[False]*len(A)
+        
+
+        for i in range(len(A)):
+        	for j in range(len(B)):
+        		if (A[i]==B[j]) and f[j]==False:
+        			f[j]=True
+        			count+=1
+        			break
+        if count==len(B):
+        	return True
+        else:
+        	return False
