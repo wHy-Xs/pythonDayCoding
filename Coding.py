@@ -304,3 +304,12 @@ def mergeSortedArray(self, A, B):
             return True
         else:
             return False
+14.字符串空格替换，将空格替换为%20
+def stringPermutation(s):
+	k=s.split(" ")#通过split函数可以将字符串转换成数组
+	m=""
+	for i in range(len(k)-1):
+		m=m+"".join(k[i])+"%20"
+
+	m=m+"".join(k[len(k)-1])
+	print m
