@@ -369,3 +369,37 @@ def reverseWords(self, s):
                 result = temp  
 
 return result 
+
+18.翻转字符串
+第一种：传入值是字符串，用切片拼接
+第二种：传入值是数组，用插入
+class Solution:
+    # @param s: a list of char
+    # @param offset: an integer
+    # @return: nothing
+    def rotateString(self, s, offset):
+        # write you code here
+        if not offset: return
+        if not s: return
+     
+        n = len(s)
+        offset = offset%n # offset可能大于N，取offset模n的余数
+         
+        f = n - offset
+        return s[f:n]+s[0:f]
+
+class Solution:
+    # @param s: a list of char
+    # @param offset: an integer
+    # @return: nothing
+    def rotateString(self, s, offset):
+        # write you code here
+        if not offset: return
+        if not s: return
+         
+        n = len(s)
+        offset = offset%n
+         
+        for i in range(offset):
+            t = s.pop()
+            s.insert(0,t) 
