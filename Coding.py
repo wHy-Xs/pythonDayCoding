@@ -340,3 +340,32 @@ def compareStrings(A, B):
         	return True
         else:
         	return False
+
+17.翻转字符串
+'''
+题目描述：给定一个字符串，逐个翻转字符串中的每个单词。
+说明：
+单词的构成：无空格字母构成一个单词
+输入字符串是否包括前导或者尾随空格？可以包括，但是反转后的字符不能包括
+如何处理两个单词间的多个空格？在反转字符串中间空格减少到只含一个
+样例：给出s = "the sky is blue"，返回"blue is sky the"
+python本身有翻转的功能list中就有注意list.reverse()只是实现这个功能，而不是数组本身，所以print list而不是print list.reverse()
+'''
+def reverseWords(self, s):  
+        cur = 0  
+        n = len(s)  
+        result = ''  
+        while cur != n:  
+            temp = ''  
+            while cur != n and s[cur] == ' ':  
+                cur += 1  
+
+            while cur != n and s[cur] != ' ':  
+                temp += s[cur]  
+                cur += 1  
+            if len(result) != 0 and len(temp) != 0:  
+                result = temp + ' ' + result  
+            elif len(temp) != 0:  
+                result = temp  
+
+return result 
