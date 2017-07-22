@@ -402,4 +402,20 @@ class Solution:
          
         for i in range(offset):
             t = s.pop()
-            s.insert(0,t) 
+            s.insert(0,t)
+19.################合并两个排序的整数数组A和B变成一个新的数组。###################
+#####################样例给出 A = [1, 2, 3, empty, empty], B = [4, 5]合并之后 A 将变成 [1,2,3,4,5]#############
+class Solution:
+    """
+    @param A: sorted integer array A which has m elements, 
+              but size of A is m+n
+    @param B: sorted integer array B which has n elements
+    @return: void
+    """
+    def mergeSortedArray(self, A, m, B, n):
+        # write your code here
+        for i in range(n):
+            A[m+i]=B[i]
+        A.sort()
+return A
+
