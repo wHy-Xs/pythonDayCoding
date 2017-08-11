@@ -447,3 +447,25 @@ def fun(path):
 	for i in stack:
 		res_path+="/"+i+""
 	return res_path	
+
+21.Anagrams
+Given an array of strings, return all groups of strings that are anagrams.
+Note: All inputs will be in lower-case
+问题地址：http://www.cnblogs.com/chruny/p/4953824.html
+ def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        d,ans= {},[]
+        for i in strs:
+            sortstr = ''.join(sorted(i))
+            if sortstr in d:
+                d[sortstr] += [i]
+            else:
+                d[sortstr] = [i]
+        #print(d)
+        for i in d:
+            tmp = d[i];tmp.sort()
+            ans += [tmp]
+        return ans
