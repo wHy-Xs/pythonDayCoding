@@ -419,3 +419,31 @@ class Solution:
         A.sort()
 return A
 
+20.leetcode问题
+Simplify Path
+
+Given an absolute path for a file (Unix-style), simplify it.
+For example,
+path = "/home/", => "/home"
+path = "/a/./b/../../c/", => "/c"
+
+问题地址：http://blog.csdn.net/ztf312/article/details/51051463
+def fun(path):
+	stack=[]
+	s=path.split('/')
+	print s
+	res_path=''
+	for i in s:
+		if i not in ["",".",".."]:
+
+			stack.append(i)
+		print stack
+		if i==".." and stack:
+			stack.pop()
+	print stack
+	if stack==[]:
+		return '/'
+
+	for i in stack:
+		res_path+="/"+i+""
+	return res_path	
