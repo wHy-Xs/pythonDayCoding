@@ -494,3 +494,88 @@ System.out.print(digit[num % 10]);
 }
 	
 	
+6.Valid Parenthese
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the
+input string is valid.
+The brackets must close in the correct order, "()" and "()[]" are all valid but "(]" and "([)]" are
+not.
+def isValid(s):
+    matchDict={'(':')','[':']','{':'}'}
+    strLen=len(s)
+    stackList=[]
+    for i in range(strLen):
+        if s[i] not in matchDict.keys() and len(stackList)==0:
+            return False 
+        elif s[i] in matchDict.keys():
+            stackList.append(s[i])
+        elif s[i]==matchDict[stackList[-1]]:
+            stackList.pop()
+        else: return False
+    if len(stackList)==0:
+        return True
+    else: return False
+
+7.Longest Valid Parentheses
+Given a string containing just the characters '(' and ')', find the length of the longest valid (wellformed) parentheses substring.
+For "(()", the longest valid parentheses substring is "()", which has length = 2.
+Another example is ")()())", where the longest valid parentheses substring is "()()", which has
+length = 4.
+
+class Solution:
+    # @param s, a string
+    # @return an integer
+    def longestValidParentheses(self, s):
+        maxlen = 0
+        stack = []
+        last = -1
+        for i in range(len(s)):
+            if s[i]=='(':
+                stack.append(i)     # push the INDEX into the stack!!!!
+            else:
+                if stack == []:
+                    last = i
+                else:
+                    stack.pop()
+                    if stack == []:
+                        maxlen = max(maxlen, i-last)
+                    else:
+                        maxlen = max(maxlen, i-stack[len(stack)-1])
+        return maxlen
+
+8.Evaluate Reverse Polish Notation
+
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+Some examples:
+["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+Evaluate Reverse Polish Notation
+᣾䔟
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+Some examples:
+["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+class Solution:
+    # @param tokens, a list of string
+    # @return an integer
+    def evalRPN(self, tokens):
+        stack = []
+        for i in range(0,len(tokens)):
+            if tokens[i] != '+' and tokens[i] != '-' and tokens[i] != '*' and tokens[i] != '/':
+                stack.append(int(tokens[i]))
+            else:
+                a = stack.pop()
+                b = stack.pop()
+                if tokens[i] == '+':
+                    stack.append(a+b)
+                if tokens[i] == '-':
+                    stack.append(b-a)
+                if tokens[i] == '*':
+                    stack.append(a*b)
+                if tokens[i] == '/':
+                    if a*b < 0:
+                        stack.append(-((-b)/a))
+                    else:
+                        stack.append(b/a)
+        return stack.pop()
